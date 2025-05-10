@@ -21,6 +21,30 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  {
+    rel: "icon",
+    type: "image/png",
+    href: "/icon/favicon-96x96.png",
+    sizes: "96x96",
+  },
+  {
+    rel: "icon",
+    type: "image/svg+xml",
+    href: "/icon/favicon.svg",
+  },
+  {
+    rel: "shortcut icon",
+    href: "/icon/favicon.ico",
+  },
+  {
+    rel: "apple-touch-icon",
+    sizes: "180x180",
+    href: "/icon/apple-touch-icon.png",
+  },
+  {
+    rel: "manifest",
+    href: "/icon/site.webmanifest",
+  },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -29,6 +53,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-title" content="CalcPWA" />
         <Meta />
         <Links />
       </head>
@@ -71,5 +96,13 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
     </main>
+  );
+}
+
+export function HydrateFallback() {
+  return (
+    <div class="flex items-center justify-center h-screen">
+      <p class="text-center text-2xl">Loading Calculator...</p>
+    </div>
   );
 }
