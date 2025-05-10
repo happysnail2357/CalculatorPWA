@@ -1,13 +1,13 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { Calculator } from "../calculator/calculator";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Calculator PWA" },
+    { name: "description", content: "A simple calculator for your basic math needs" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <Calculator />;
 }

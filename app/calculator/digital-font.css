@@ -1,0 +1,19 @@
+/*
+ * font:
+ *     digital-7
+ *
+ * by:
+ *     Sizenko Alexander
+ *     Style-7
+ *     http://www.styleseven.com
+ *     Created: October 7 2008
+ */
+
+@font-face {
+  font-family: 'Digital7';
+  src: url('/fonts/digital-7 (mono italic).ttf') format('truetype');
+}
+
+.digital-font {
+  font-family: 'Digital7', monospace;
+}
