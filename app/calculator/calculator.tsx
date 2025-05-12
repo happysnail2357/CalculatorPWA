@@ -12,7 +12,7 @@ export function Calculator() {
     let [isFloatingPoint, setIsFloatingPoint] = useState<boolean>(false);
     let [isSecondNumber, setIsSecondNumber] = useState<boolean>(false);
     let [isResult, setIsResult] = useState<boolean>(false);
-    let [wantsAddtition, setWantsAddtition] = useState<boolean>(false);
+    let [wantsAddition, setWantsAddition] = useState<boolean>(false);
     let [wantsSubtraction, setWantsSubtraction] = useState<boolean>(false);
     let [wantsMultiplication, setWantsMultiplication] = useState<boolean>(false);
     let [wantsDivision, setWantsDivision] = useState<boolean>(false);
@@ -23,7 +23,7 @@ export function Calculator() {
         setIsFloatingPoint(false);
         setIsSecondNumber(false);
         setIsResult(false);
-        setWantsAddtition(false);
+        setWantsAddition(false);
         setWantsSubtraction(false);
         setWantsMultiplication(false);
         setWantsDivision(false);
@@ -66,9 +66,9 @@ export function Calculator() {
         else if (isSecondNumber) {
             if (func === '=' && displayString !== '' && displayString !== '.') {
                 let secondNumber: number = grabNumber();
-                if (wantsAddtition) {
+                if (wantsAddition) {
                     setDisplayString(firstNumber + secondNumber);
-                    setWantsAddtition(false);
+                    setWantsAddition(false);
                 }
                 else if (wantsSubtraction) {
                     setDisplayString(firstNumber - secondNumber);
@@ -90,7 +90,7 @@ export function Calculator() {
             switch (func) {
                 case '+':
                     if (displayString !== '' && displayString !== '.') {
-                        setWantsAddtition(true);
+                        setWantsAddition(true);
                         setFirstNumber(grabNumber());
                         setIsSecondNumber(true);
                     }
@@ -125,8 +125,15 @@ export function Calculator() {
     
     return (
         <div class="bg-stone-50 flex items-center justify-center min-h-screen">
-            <div class="p-6 rounded-lg bg-white shadow-lg">
-                <Display text={displayString} />
+            <div class="p-6 rounded-xl bg-white shadow-lg">
+                <Display
+                    text={displayString}
+                    iconAdd={wantsAddition}
+                    iconSub={wantsSubtraction}
+                    iconMult={wantsMultiplication}
+                    iconDiv={wantsDivision}
+                    iconRes={isResult}
+                />
                 <NumberPad digitCallback={handleDigit} functionCallback={handleFunction} />
             </div>
         </div>
