@@ -39,7 +39,7 @@ export function Calculator() {
     const handleDigit: CallbackWithNumber = (digit) => {
         
         if (isResult) {
-            setDisplayString(digit);
+            setDisplayString(`${digit}`);
             setIsResult(false);
         }
         else
@@ -63,25 +63,36 @@ export function Calculator() {
                 setIsFloatingPoint(true);
             }
         }
+        else if (func === '±') {
+            if (displayString.charAt(0) === '-') {
+                setDisplayString(displayString.substring(1));
+            }
+            else if (displayString !== '' && displayString !== '.' && parseFloat(displayString) !== 0) {
+                setDisplayString('-' + displayString);
+            }
+            setIsResult(false);
+        }
         else if (isSecondNumber) {
             if (func === '=' && displayString !== '' && displayString !== '.') {
                 let secondNumber: number = grabNumber();
+                let result: number = 0;
                 if (wantsAddition) {
-                    setDisplayString(firstNumber + secondNumber);
+                    result = firstNumber + secondNumber;
                     setWantsAddition(false);
                 }
                 else if (wantsSubtraction) {
-                    setDisplayString(firstNumber - secondNumber);
+                    result = firstNumber - secondNumber;
                     setWantsSubtraction(false);
                 }
                 else if (wantsMultiplication) {
-                    setDisplayString(firstNumber * secondNumber);
+                    result = firstNumber * secondNumber;
                     setWantsMultiplication(false);
                 }
                 else if (wantsDivision) {
-                    setDisplayString(firstNumber / secondNumber);
+                    result = firstNumber / secondNumber;
                     setWantsDivision(false);
                 }
+                setDisplayString(`${result}`);
                 setIsResult(true);
                 setIsSecondNumber(false);
             }
@@ -124,8 +135,8 @@ export function Calculator() {
     };
     
     return (
-        <div class="bg-stone-50 flex items-center justify-center min-h-screen">
-            <div class="p-6 rounded-xl bg-white shadow-lg">
+        <div className="bg-stone-50 flex items-center justify-center min-h-screen">
+            <div className="p-6 rounded-xl bg-white shadow-lg">
                 <Display
                     text={displayString}
                     iconAdd={wantsAddition}

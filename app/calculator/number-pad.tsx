@@ -9,7 +9,7 @@ type NumberPadProps = {
 
 export function NumberPad({ digitCallback, functionCallback }: NumberPadProps) {
     return (
-        <div class="grid grid-cols-4 grid-rows-5 gap-2 justify-items-center m-4">
+        <div className="grid grid-cols-4 grid-rows-5 gap-2 justify-items-center m-4">
             <FunctionButton func={'C'} onClick={functionCallback} />
             <div></div>
             <div></div>
