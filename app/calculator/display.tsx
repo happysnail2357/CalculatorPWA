@@ -18,8 +18,8 @@ export function Display({ text, iconAdd, iconSub, iconMult, iconDiv, iconRes }: 
                 {iconMult && <p className="w-3 h-3 rounded-full bg-black text-xs text-gray-200 text-center leading-[0.9]">×</p> || <p className="w-3 h-3"></p>}
                 {iconDiv && <p className="w-3 h-3 rounded-full bg-black text-xs text-gray-200 text-center leading-[0.9]">÷</p>}
             </div>
-            {iconRes && <p className="text-4xl digital-font">=</p>}
-            <p className="ml-auto text-4xl digital-font">{text}</p>
+            {iconRes && <p className="text-4xl text-black digital-font">=</p>}
+            <p className="ml-auto text-4xl text-black digital-font">{text}</p>
         </div>
     );
 }
