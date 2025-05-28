@@ -12,6 +12,10 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["/fonts/*.ttf"],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        navigateFallback: '/index.html',
+      },
       manifest: {
         name: "CalculatorPWA",
         short_name: "CalcPWA",
