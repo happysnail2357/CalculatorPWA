@@ -12,9 +12,6 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["/fonts/*.ttf"],
-      devOptions: {
-        enabled: true
-      },
       manifest: {
         name: "CalculatorPWA",
         short_name: "CalcPWA",

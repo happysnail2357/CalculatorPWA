@@ -9,6 +9,16 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { registerSW } from 'virtual:pwa-register';
+
+registerSW({
+    onRegistered(registration) {
+        console.log('Service worker registered:', registration);
+    },
+    onRegisterError(error) {
+        console.error('SW registration error:', error);
+    }
+});
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
