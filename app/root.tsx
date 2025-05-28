@@ -10,19 +10,6 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
-// Register serviceWorker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('ServiceWorker registered:', registration);
-      })
-      .catch(error => {
-        console.error('ServiceWorker registration failed:', error);
-      });
-  });
-}
-
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -53,10 +40,6 @@ export const links: Route.LinksFunction = () => [
     rel: "apple-touch-icon",
     sizes: "180x180",
     href: "/icon/apple-touch-icon.png",
-  },
-  {
-    rel: "manifest",
-    href: "/icon/site.webmanifest",
   },
 ];
 
